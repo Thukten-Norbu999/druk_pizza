@@ -42,35 +42,39 @@ class _HomePageState extends State<HomePage> {
       ),
 
       //body
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.blueAccent,
-                ),
-                child: const Text('Yellow'),
-              ),
-              SizedBox(
-                height: 60,
-                width: 60,
-                child: Container(
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Container(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(32),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.blueAccent,
+                  ),
+                  child: const Text('Yellow'),
+                ),
+                SizedBox(
+                  height: 60,
+                  width: 60,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.redAccent,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 100,
-                height: 100,
-              ),
-              Image.asset('images/download.jpg'),
-            ],
+                const SizedBox(
+                  width: 100,
+                  height: 100,
+                ),
+                Image.asset('images/download.jpg'),
+              ],
+            ),
           ),
         ),
       ),
@@ -98,6 +102,29 @@ class _HomePageState extends State<HomePage> {
             label: 'Account',
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Orders extends StatelessWidget {
+  const Orders({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Scrollbar(
+            child: Column(
+              children: [
+                Container(
+                  child: Card(color: Colors.blue),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
