@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
     ),
-    home: const HomePage(),
-  ));
+  );
 }
 
 class HomePage extends StatefulWidget {
@@ -22,12 +25,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //leading: ,
-        shadowColor: Colors.red.shade400,
+        leading: const Icon(
+          Icons.menu,
+          semanticLabel: 'Menu',
+        ),
+        shadowColor: Colors.black,
         actions: <Widget>[
           IconButton(
-            tooltip: 'Look at the menu',
-            icon: const Icon(Icons.menu_rounded),
+            tooltip: 'Search',
+            icon: const Icon(Icons.search),
             onPressed: () {},
           ),
         ],
@@ -40,12 +46,31 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         height: double.infinity,
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.blueAccent,
-          ),
           child: Column(
-            children: const [],
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.blueAccent,
+                ),
+                child: const Text('Yellow'),
+              ),
+              SizedBox(
+                height: 60,
+                width: 60,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 100,
+                height: 100,
+              ),
+              Image.asset('images/download.jpg'),
+            ],
           ),
         ),
       ),
@@ -55,7 +80,9 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.red.shade700,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_outlined),
             label: 'Orders',
