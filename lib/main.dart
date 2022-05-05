@@ -80,12 +80,22 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.red.shade700,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: Icon(Icons.shopping_cart_outlined, color: Colors.white),
             label: 'Orders',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle_outlined,
+              color: Colors.white,
+            ),
+            label: 'Account',
           ),
         ],
       ),
