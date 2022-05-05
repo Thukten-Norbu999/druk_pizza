@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   margin: EdgeInsets.all(16),
@@ -68,11 +69,20 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 100,
-                  height: 100,
-                ),
                 Image.asset('images/download.jpg'),
+                Card(
+                  margin: EdgeInsets.all(16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Press'),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

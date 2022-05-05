@@ -13,7 +13,7 @@ class Login extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50), color: Colors.green),
         ),
-        Container(),
+        Container(child: TextField()),
         Container(),
       ]),
     ));
