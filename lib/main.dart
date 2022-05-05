@@ -22,8 +22,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        //leading: ,
+        shadowColor: Colors.red.shade400,
+        actions: <Widget>[
+          IconButton(
+            tooltip: 'Look at the menu',
+            icon: const Icon(Icons.menu_rounded),
+            onPressed: () {},
+          ),
+        ],
+        backgroundColor: Colors.red.shade700,
+        title: const Text('Druk Pizza'),
       ),
+
+      //body
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
@@ -36,6 +48,19 @@ class _HomePageState extends State<HomePage> {
             children: const [],
           ),
         ),
+      ),
+
+      //Nav
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.red.shade700,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Orders',
+          ),
+        ],
       ),
     );
   }
