@@ -13,15 +13,39 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: MaterialButton(
-          child: const Icon(
-            Icons.menu,
-            color: Colors.white,
+      drawer: Drawer(
+        child: Container(
+          margin: const EdgeInsets.all(15),
+          child: ListView(
+            padding: const EdgeInsets.all(10),
+            children: [
+              ListBody(
+                children: [
+                  ListTile(
+                    title: const Text('Settings'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const AccountPage()),
+                        ),
+                      );
+                    },
+                  ),
+                  const ListTile(),
+                ],
+              ),
+            ],
           ),
-          onPressed: () {},
         ),
-        shadowColor: Colors.black,
+      ),
+      appBar: AppBar(
+        leading: Builder(
+          builder: ((context) => IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                icon: const Icon(Icons.menu),
+              )),
+        ),
         actions: <Widget>[
           IconButton(
             tooltip: 'Search',
@@ -93,16 +117,23 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              MaterialButton(
-                child: const Icon(Icons.login),
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Login()),
-                    );
-                  });
-                },
+              Row(
+                children: [
+                  MaterialButton(
+                    child: const Icon(Icons.login),
+                    onPressed: () {
+                      setState(
+                        () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -134,13 +165,13 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'Orders',
           ),
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Icon(
               Icons.account_circle_outlined,
             ),
             activeIcon: Icon(Icons.account_circle),
             label: 'Account',
-          ),
+          ),*/
         ],
       ),
     );
@@ -185,7 +216,67 @@ class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Favorites'),
+      ),
+    );
+  }
+}
+
+class AccountPage extends StatefulWidget {
+  const AccountPage({Key? key}) : super(key: key);
+
+  @override
+  State<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Account'),
+      ),
+      body: Container(
+        margin: const EdgeInsets.all(15),
+        child: Center(
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              Container(
+                color: Colors.blue,
+                child: const SizedBox(
+                  height: 250,
+                  child: Text('Blue'),
+                ),
+              ),
+              Container(
+                child: const Center(
+                  child: SizedBox(
+                    height: 250,
+                    child: Text('Green'),
+                  ),
+                ),
+                color: Colors.green,
+              ),
+              Container(
+                color: Colors.blue,
+                child: const SizedBox(
+                  height: 250,
+                  child: Text('Blue'),
+                ),
+              ),
+              Container(
+                child: const SizedBox(
+                  height: 250,
+                  child: Text('Green'),
+                ),
+                color: Colors.green,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

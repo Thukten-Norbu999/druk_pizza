@@ -201,7 +201,14 @@ class _SignUpState extends State<SignUp> {
                       child: const Text('Create Account'),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Login(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Already have an account? Login',
                         style: TextStyle(color: Colors.white),
