@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -8,6 +9,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final titleStyle = GoogleFonts.ubuntuMono(
+      fontSize: 35, fontWeight: FontWeight.w600, color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,14 +23,7 @@ class _LoginState extends State<Login> {
             children: [
               Container(
                 margin: const EdgeInsets.all(20),
-                child: const Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child: Text('Login', style: titleStyle),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,6 +117,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final titleStyle = GoogleFonts.ubuntuMono(
+      fontSize: 35, fontWeight: FontWeight.w600, color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,14 +131,7 @@ class _SignUpState extends State<SignUp> {
             children: [
               Container(
                 margin: const EdgeInsets.all(16),
-                child: const Text(
-                  'SignUp',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                child: Text('SignUp', style: titleStyle),
               ),
               Container(
                 margin: const EdgeInsets.all(10),
